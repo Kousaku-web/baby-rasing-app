@@ -69,21 +69,23 @@
           </form>
         );
       };
+
       const App = () => {
-        const [todos, setTodos] = React.useState([
+
+        const initialTasks = [
           { id: 1, title: '手続き関係期限の一覧作成、部屋にはる', isCompleted: false, category: 'task' },
           { id: 2, title: '入院バッグの準備', isCompleted: false, category: 'task' },
           { id: 3, title: 'ベビーベット購入', isCompleted: false, category: 'task' }
-        ]);
+        ];
+        const [todos, setTodos] = React.useState([]);
 
         React.useEffect(() => {
-          let savedTodos;
-          if (localStorage.getItem('todos') === null) {
-            savedTodos = [];
+          const saved = localStorage.getItem('todos');
+          if (saved) {
+            setTodos(JSON.parse(saved));
           } else {
-            savedTodos = JSON.parse(localStorage.getItem('todos'));
+            updateTodos(initialTasks);
           }
-          setTodos(savedTodos);
         }, []);
 
         const updateTodos = (newTodos) => {

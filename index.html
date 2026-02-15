@@ -36,6 +36,7 @@
                 onChange={handleCheckboxChange}
               />
               <span>{props.todo.title}</span>
+              <span className="time">{props.todo.createdAt}</span>
             </label>
             <button onClick={handleDeleteClick}>Del</button>
           </li>
@@ -105,10 +106,14 @@
 
         const handleAddFormSubmit = (title) => {
           const newTodos = [...todos];
+
+          const now = new Date();
+          const timeString = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
           newTodos.push({
             id: Date.now(),
             title: title,
             isCompleted: false,
+            createdAt: timeString
           });
           updateTodos(newTodos);
         };

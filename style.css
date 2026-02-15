@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+/* 変数を使って、後で色を一括変更しやすくします */
+:root {
+  --main-color: #4db6ac; /* 清潔感のあるミントグリーン */
+  --accent-color: #ff8a65; /* 重要・警告用のコーラル */
+  --bg-color: #f0f4f4;    /* 目に優しい薄いグレー */
+  --text-color: #37474f;  /* 濃いグレー（純粋な黒より柔らかい） */
+  --border-color: #cfd8dc;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  color: var(--text-color);
+}
+
+.container {
+  width: 440px; /* 少し余裕を持たせました */
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px; /* 角を丸くして優しい印象に */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 軽い浮遊感 */
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 22px;
+  border-bottom: 2px solid var(--main-color); /* 下線をメインカラーに変更 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+}
+
+/* Purgeボタンなどのボタン共通スタイル */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 12px;
+  background-color: #f1f3f4;
+  color: #5f6368;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 垂直方向を中央揃えに */
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--border-color); /* 境界線を点線に */
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+/* チェックを入れた時の打ち消し線 */
+li input:checked + span {
+  color: #b0bec5;
+  text-decoration: line-through;
+}
+
+li input {
+  margin-right: 12px;
+}
+
+li label {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+form input {
+  flex: 1;
+  padding: 10px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+form input:focus {
+  border-color: var(--main-color); /* 入力中に色が変わる */
+}
+
+form button {
+  background-color: var(--main-color);
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+}

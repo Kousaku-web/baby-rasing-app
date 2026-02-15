@@ -70,7 +70,11 @@
         );
       };
       const App = () => {
-        const [todos, setTodos] = React.useState([]);
+        const [todos, setTodos] = React.useState([
+          { id: 1, title: '手続き関係期限の一覧作成、部屋にはる', isCompleted: false, category: 'task' },
+          { id: 2, title: '入院バッグの準備', isCompleted: false, category: 'task' },
+          { id: 3, title: 'ベビーベット購入', isCompleted: false, category: 'task' }
+        ]);
 
         React.useEffect(() => {
           let savedTodos;
@@ -141,7 +145,7 @@
         return (
           <>
             <h1>
-            Todos
+            Baby Care & Tasks
             <button onClick={handlePurgeClick}>Purge</button>
             </h1>
             <ul id="todos">
